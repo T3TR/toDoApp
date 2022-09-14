@@ -5,22 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do</title>
+
+
 </head>
 <body>
 
     <section>
         <div>
             <form>
+                
                 <input type="text" id="TaskName" placeholder="Task Name" required>
                 <input type="date" id="DueDate" required>
                 <input type="text" id="Description" placeholder="Description (optional)">
-                <button type="submit" onclick="onclickAdd(event)">Create new Task</button>
+                <button type="submit" onclick="onClickAdd(event)">Create new Task</button>
 
             </form>
         </div>
     </section>
 
-    <script src="./JS/toDoApp.js"></script>
+
+    <ul id="taskItemsList">
+        <li>Old Content</li>
+    </ul>
+
+    <script src="./JS/toDoApp.js" type="module"></script>
     
 </body>
 </html>

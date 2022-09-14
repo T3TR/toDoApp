@@ -1,64 +1,33 @@
-class Task {
-    constructor( taskName, dueDate, optDescr, ID, isComplete ){
-        this._taskName = taskName;
-        this._dueDate = dueDate;
-        this._optDescr = optDescr;
-        this._ID = ID;
-        this._isComplete = isComplete;
-    }
+import { TaskList } from "./TaskList.js";
 
-    //Proporties
-    get taskName(){
-        return this._taskName
-    }
-    get ID(){
-        return this._ID
-    }
-    get dueDate(){
-        return this._dueDate
-    }
-    get optDescr(){
-        return this._optDescr
-    }
-    get isComplete(){
-        return this._isComplete
-    }
 
-    //Methods
-    completed(){
-        this.isComplete = true
-    }
-}
+// Logic for creating new Tasks and adding them to the TaskList Array.
+const taskList = new TaskList()
 
-class TaskList {
-    constructor( ){
-        this._Tasks = []
-        this._Count = 0
-    }
+window.onClickAdd = function(e){
 
-    //Proporties
-    get Tasks(){
-        return this._Tasks
-    }
-
-    //Methods
-    createNewTask(newTaskName, newDueDate, newDescription){
-        let newID = this._Count++
-        let newCompleteStatus = false
-    
-        let newTask = new Task(newTaskName, newDueDate, newDescription, newID, newCompleteStatus)
-        this.Tasks.push(newTask)
-    }
-}
-
-const taskList = new TaskList( )
-
-function onclickAdd(e){
     e.preventDefault();
     let newTaskName = document.getElementById('TaskName').value
     let newDueDate = document.getElementById('DueDate').value
     let newDescription = document.getElementById('Description').value
 
-    taskList.createNewTask(newTaskName, newDueDate, newDescription)
+    let newTask = taskList.createNewTask(newTaskName, newDueDate, newDescription)
     console.log(taskList)
+
+    // Logic for adding Tasks from the TaskList to the HTML ul element and display them.
+    const taskItemsList = document.getElementById("taskItemsList");
+    const newTaskListItem = document.createElement("li");
+    newTaskListItem.id = newTask.ID;
+    newTaskListItem.textContent = newTask.taskName +" "+ newTask.optDescr +" "+ newTask.dueDate;
+    taskItemsList.appendChild(newTaskListItem);
+
+    /* Logic for adding a checkbox to the new Task List Item to indicate
+     whether the task is/is not complete and update the object in the TaskList array. */
+    const checkBox = document.createElement("input");
+    checkBox.type = "checkbox"
+    checkBox.name = "isComplete"
+    checkBox.id = newTask.ID
+    checkBox.onclick = taskList.completeTask
+    newTaskListItem.appendChild(checkBox)
+
 }
