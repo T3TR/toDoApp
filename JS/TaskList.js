@@ -21,14 +21,7 @@ class TaskList {
         this.Tasks.push(newTask)
         return newTask
     }
-    completeTask(event){
-        let checked = event.target.checked
-        let checkBoxID = event.target.id
-        let arrayIndex = checkBoxID - 1
-        console.log(this._Tasks)
-        this.Tasks[arrayIndex].completed(checked)
-
-    }
+    
 }
 
 export { TaskList };

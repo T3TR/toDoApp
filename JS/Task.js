@@ -26,29 +26,21 @@ class Task {
         return this._isComplete 
     }
 
-
+    set taskName(value){
+        this._taskName = value
+    }
+    set dueDate(value){
+        this._dueDate = value
+    }
+    set optDescr(value){
+        this._optDescr = value
+    }
     set isComplete(value){
             this._isComplete = value
     };
     
 
     //Methods
-    completed(event){
-        let checked = event.target.checked
-        let checkBoxID = event.target.id
-        let taskIndex = checkBoxID - 1
-        //let arrayIndex = taskList.findIndex((newTask => newTask.ID == taskID))
-        if (checked === true){
-            console.log(checkBoxID, taskIndex)
-            taskList[taskIndex].isComplete = true;
-            console.log("True");
-
-            }
-        else{
-            taskList[taskIndex].isComplete = false;
-            console.log("False");
-        }
-    }
     
 }
 

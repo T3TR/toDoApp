@@ -22,11 +22,6 @@ window.onClickAdd = function(e){
     newTaskListItem.textContent = newTask.taskName +" "+ newTask.optDescr +" "+ newTask.dueDate;
     taskItemsList.appendChild(newTaskListItem);
 
-    let taskItem = newTask.isComplete;
-    console.log(taskItem)
-
-    //newTask.isComplete = true
-    //console.log(taskItem)
 
     /* Logic for adding a checkbox to the new Task List Item to indicate
      whether the task is/is not complete and update the object in the TaskList array. */
@@ -34,7 +29,21 @@ window.onClickAdd = function(e){
     checkBox.type = "checkbox";
     checkBox.name = "isComplete";
     checkBox.id = newTask.ID;
-    checkBox.onclick = newTask.completed;
+
+    let checkBoxID = newTask.ID
+    let checkBoxToggle = document.getElementById(checkBoxID)
+
+    checkBoxToggle.addEventListener("click", () => {
+            console.log("CHECKED")
+            if (newTask.isComplete == false) {
+                console.log("True");
+                newTask.isComplete = true;
+            }
+            else {
+                console.log("False");
+                newTask.isComplete = false;
+            }
+        });
     newTaskListItem.appendChild(checkBox);
     
 }
