@@ -1,4 +1,5 @@
 import { TaskList } from "./TaskList.js";
+import { Task } from "./Task.js";
 
 
 // Logic for creating new Tasks and adding them to the TaskList Array.
@@ -7,12 +8,12 @@ const taskList = new TaskList()
 window.onClickAdd = function(e){
 
     e.preventDefault();
-    let newTaskName = document.getElementById('TaskName').value
-    let newDueDate = document.getElementById('DueDate').value
-    let newDescription = document.getElementById('Description').value
+    let newTaskName = document.getElementById('TaskName').value;
+    let newDueDate = document.getElementById('DueDate').value;
+    let newDescription = document.getElementById('Description').value;
 
-    let newTask = taskList.createNewTask(newTaskName, newDueDate, newDescription)
-    console.log(taskList)
+    let newTask = taskList.createNewTask(newTaskName, newDueDate, newDescription);
+    console.log(taskList);
 
     // Logic for adding Tasks from the TaskList to the HTML ul element and display them.
     const taskItemsList = document.getElementById("taskItemsList");
@@ -21,13 +22,21 @@ window.onClickAdd = function(e){
     newTaskListItem.textContent = newTask.taskName +" "+ newTask.optDescr +" "+ newTask.dueDate;
     taskItemsList.appendChild(newTaskListItem);
 
+    let taskItem = newTask.isComplete;
+    console.log(taskItem)
+
+    //newTask.isComplete = true
+    //console.log(taskItem)
+
     /* Logic for adding a checkbox to the new Task List Item to indicate
      whether the task is/is not complete and update the object in the TaskList array. */
     const checkBox = document.createElement("input");
-    checkBox.type = "checkbox"
-    checkBox.name = "isComplete"
-    checkBox.id = newTask.ID
-    checkBox.onclick = taskList.completeTask
-    newTaskListItem.appendChild(checkBox)
-
+    checkBox.type = "checkbox";
+    checkBox.name = "isComplete";
+    checkBox.id = newTask.ID;
+    checkBox.onclick = newTask.completed;
+    newTaskListItem.appendChild(checkBox);
+    
 }
+
+export { taskList };

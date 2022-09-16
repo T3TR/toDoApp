@@ -1,3 +1,5 @@
+import { taskList } from "./toDoApp.js";
+
 class Task {
     constructor( taskName, dueDate, optDescr, ID, isComplete ){
         this._taskName = taskName;
@@ -7,7 +9,7 @@ class Task {
         this._isComplete = isComplete;
     }
 
-    //Proporties
+    //Getters and Setters
     get taskName(){
         return this._taskName
     }
@@ -21,20 +23,33 @@ class Task {
         return this._optDescr
     }
     get isComplete(){
-        return this._isComplete
+        return this._isComplete 
     }
 
+
+    set isComplete(value){
+            this._isComplete = value
+    };
+    
+
     //Methods
-    completed(checked){
+    completed(event){
+        let checked = event.target.checked
+        let checkBoxID = event.target.id
+        let taskIndex = checkBoxID - 1
+        //let arrayIndex = taskList.findIndex((newTask => newTask.ID == taskID))
         if (checked === true){
-            console.log("True")
-            this._isComplete = true
-        }
+            console.log(checkBoxID, taskIndex)
+            taskList[taskIndex].isComplete = true;
+            console.log("True");
+
+            }
         else{
-            this._isComplete = false
-            console.log("False")
+            taskList[taskIndex].isComplete = false;
+            console.log("False");
         }
     }
+    
 }
 
 export { Task };
