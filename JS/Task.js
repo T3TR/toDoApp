@@ -37,7 +37,7 @@ class Task {
     }
     set isComplete(value){
             this._isComplete = value
-    };
+    }
     
 
     //Methods
