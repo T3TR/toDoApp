@@ -2,7 +2,7 @@ import { TaskList } from "./TaskList.js";
 import { Task } from "./Task.js";
 
 
-// Logic for creating new Tasks and adding them to the TaskList Array.
+// Logic for creating new Tasks and adding them to the TaskList.
 const taskList = new TaskList()
 
 window.onClickAdd = function(e){
@@ -24,7 +24,7 @@ window.onClickAdd = function(e){
 
 
     /* Logic for adding a checkbox to the new Task List Item to indicate
-     whether the task is/is not complete and update the object in the TaskList array. */
+     whether the task is/is not complete and update the object in the array. */
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.name = "isComplete";
@@ -34,17 +34,33 @@ window.onClickAdd = function(e){
     let checkBoxToggle = document.getElementById(checkBoxID)
 
     checkBoxToggle.addEventListener("click", () => {
-            console.log("CHECKED")
             if (newTask.isComplete == false) {
-                console.log("True");
                 newTask.isComplete = true;
             }
             else {
-                console.log("False");
                 newTask.isComplete = false;
             }
         });
     newTaskListItem.appendChild(checkBox);
+
+    // Edit Task functionality
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit"
+    editButton.name = "Edit";
+    editButton.id = newTask.ID
+    editButton.addEventListener("click", () => {
+        let editTaskName = prompt("Please enter the new task name :", newTaskName);
+        let editDueDate = prompt("Please enter the new due date as yyyy/mm/dd :", newDueDate);
+        let editDescription = prompt("Enter an new optional description :", newDescription);
+
+        newTask.taskName = editTaskName;
+        newTask.dueDate = editDueDate;
+        newTask.optDescr = editDescription;
+        newTaskListItem.textContent = editTaskName +" "+ editDescription +" "+ editDueDate;
+        newTaskListItem.appendChild(checkBox);
+        newTaskListItem.appendChild(editButton);
+    });
+    newTaskListItem.appendChild(editButton)
     
 }
 
