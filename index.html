@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do</title>
-
+    <link rel="stylesheet" href="./css/stylesheet.css">
 
 </head>
 <body>
 
     <section>
         <div>
-            <form>
+            <form class="newTaskForm">
                 
-                <input type="text" id="TaskName" placeholder="Task Name" required>
-                <input type="date" id="DueDate" required>
-                <input type="text" id="Description" placeholder="Description (optional)">
+                <input type="text" id="formTaskName" placeholder="Task Name" title="Enter a New Task Name" required>
+                <input type="date" id="formDueDate" title="Enter the Due Date for the New Task" required>
+                <input type="text" id="formDescription" placeholder="Description (optional)" title="Enter an optional Description for the New Task" >
                 <button type="submit" onclick="onClickAdd(event)">Create new Task</button>
 
             </form>

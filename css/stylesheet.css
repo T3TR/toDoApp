@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+#taskItemsList {
+    list-style-type: none;
+}
+
+.newTaskForm{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.formTaskName {
+    text-align: center;
+}
+
+.formDueDate {
+    text-align: center;
+}
+
+.formDescription {
+    text-align: center;
+}
