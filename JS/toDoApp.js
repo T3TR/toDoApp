@@ -18,13 +18,18 @@ const renderTask = (newTask) => {
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.name = "Complete";
-    checkBox.id = newTask.ID;
     checkBox.classList = "checkBox";
 
-    let checkBoxID = newTask.ID;
-    let checkBoxToggle = document.getElementById(checkBoxID);
+    if(newTask.isComplete == true){
+        checkBox.checked = true
+        newTaskListItem.style.textDecoration = "line-through";
+    }
+    else{
+        checkBox.checked = false
+        newTaskListItem.style.textDecoration = "";
+    }
 
-    checkBoxToggle.addEventListener("click", () => {
+    checkBox.addEventListener("click", () => {
         if (newTask.isComplete == false) {
             newTask.isComplete = true;
             newTaskListItem.style.textDecoration = "line-through";
@@ -41,7 +46,6 @@ const renderTask = (newTask) => {
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
     editButton.name = "Edit";
-    editButton.id = newTask.ID;
     editButton.classList = "editButton";
 
     editButton.addEventListener("click", () => {
@@ -64,7 +68,6 @@ const renderTask = (newTask) => {
     const deleteButton = document.createElement("Button");
     deleteButton.textContent = "Delete";
     deleteButton.name = "Delete";
-    deleteButton.id = newTask.ID;
     deleteButton.classList = "deleteButton";
     deleteButton.addEventListener("click", () => {
         document.getElementById(newTask.ID).style.display = "none";
