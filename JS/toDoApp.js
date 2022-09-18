@@ -13,9 +13,8 @@ const renderTask = (newTask) => {
     newTaskListItem.textContent = newTask.taskName +" "+ newTask.optDescr +" "+ newTask.dueDate;
     taskItemsList.appendChild(newTaskListItem);
 
-
     /* Logic for adding a checkbox to the new Task List Item to indicate
-     whether the task is/is not complete and update the object in the array. */
+    whether the task is/is not complete and update the object in the array. */
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.name = "Complete";
@@ -37,7 +36,8 @@ const renderTask = (newTask) => {
     });
     newTaskListItem.appendChild(checkBox);
 
-    // Edit Task functionality
+    /* Edit Task functionality with multiple prompts for new user inputs to replace previous data.
+    Updates the list elements text content and appends the other functionalities back to it. */
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
     editButton.name = "Edit";
@@ -59,7 +59,8 @@ const renderTask = (newTask) => {
     });
     newTaskListItem.appendChild(editButton);
 
-    // Delete Task functionality
+    /* Delete Task functionality, adds a new button that hides the list element and
+    removes the object from the array. */
     const deleteButton = document.createElement("Button");
     deleteButton.textContent = "Delete";
     deleteButton.name = "Delete";
@@ -70,6 +71,9 @@ const renderTask = (newTask) => {
         newTask.deleteItem(newTask.ID);
     });
     newTaskListItem.appendChild(deleteButton);
+
+    //List order for the components of each list item. i.e : checkbox, inner text and buttons.
+
 }
 
 // Logic for creating new Tasks and adding them to the TaskList.
@@ -85,8 +89,6 @@ window.onClickAdd = function(e){
 
     renderTask(newTask);
     
-    //List order for the components of each list item. i.e : checkbox, inner text and buttons.
-    document.getElementById()
 }
 
 window.save = function(){
