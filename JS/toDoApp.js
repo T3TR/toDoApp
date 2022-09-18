@@ -45,9 +45,9 @@ const renderTask = (newTask) => {
     editButton.classList = "editButton";
 
     editButton.addEventListener("click", () => {
-        let editTaskName = prompt("Please enter the new task name :", newTaskName);
-        let editDueDate = prompt("Please enter the new due date as yyyy/mm/dd :", newDueDate);
-        let editDescription = prompt("Enter an new optional description :", newDescription);
+        let editTaskName = prompt("Please enter the new task name :", newTask.taskName);
+        let editDueDate = prompt("Please enter the new due date as yyyy/mm/dd :", newTask.dueDate );
+        let editDescription = prompt("Enter an new optional description :", newTask.optDescr);
 
         newTask.taskName = editTaskName;
         newTask.dueDate = editDueDate;
@@ -86,6 +86,7 @@ window.onClickAdd = function(e){
     renderTask(newTask);
     
     //List order for the components of each list item. i.e : checkbox, inner text and buttons.
+    document.getElementById()
 }
 
 window.save = function(){
