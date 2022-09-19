@@ -80,12 +80,12 @@ const renderTask = (newTask) => {
 }
 
 // Logic for creating new Tasks and adding them to the TaskList.
-window.onClickAdd = function(e){
+window.addNewTask = function(e){
 
     e.preventDefault();
-    let newTaskName = document.getElementById('TaskName').value;
-    let newDueDate = document.getElementById('DueDate').value;
-    let newDescription = document.getElementById('Description').value;
+    let newTaskName = document.getElementById('formTaskName').value;
+    let newDueDate = document.getElementById('formDueDate').value;
+    let newDescription = document.getElementById('formDescription').value;
 
     let newTask = taskList.createNewTask(newTaskName, newDueDate, newDescription);
     console.log(taskList);

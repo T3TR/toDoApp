@@ -16,14 +16,22 @@ body {
     text-align: center;
 }
 
-.formTaskName {
+#formTaskName {
     text-align: center;
 }
 
-.formDueDate {
+#formDueDate {
     text-align: center;
 }
 
-.formDescription {
+#formDescription {
+    text-align: center;
+}
+
+#taskItemsList {
+    text-align: center;
+}
+
+.saveButton{
     text-align: center;
 }
